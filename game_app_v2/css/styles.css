@@ -1,0 +1,52 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    overflow: auto;
+    background-color: #333;
+    color: #fff;
+    border: 5px solid rgba(85, 0, 119, 0.3);
+    border-radius: 10px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    box-shadow: 0 0 20px 20px rgba(50, 205, 50, 0.8) inset, 0 0 20px 20px limegreen;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../admin_view/images/brp.jpg') center center fixed;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+a, button {
+    background-color: limegreen;
+    color: #fff;
+    text-decoration: none;
+    padding: 0px 0px;
+    border: none;
+    cursor: pointer;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    border-radius: 0px;
+}
+
+a:hover, button:hover {
+    border: 2px solid purple;
+    box-shadow: 0 0 10px 5px #550077 inset;
+}
+
+h1 {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    color: limegreen;
+    text-shadow: 0 0 10px #550077, 0 0 10px #550077, 0 0 15px #550077;
+}
+
+h2 {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    color: limegreen;
+    text-shadow: 0 0 5px #550077, 0 0 10px #550077, 0 0 15px #550077;
+}

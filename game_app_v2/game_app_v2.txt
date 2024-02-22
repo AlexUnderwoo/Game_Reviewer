@@ -1,0 +1,102 @@
+-- Database: 'game_app_v2'
+DROP DATABASE IF EXISTS game_app_v2;
+CREATE DATABASE game_app_v2 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE game_app_v2;
+
+-- Table structure for table 'users'
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+  UserId int(11) AUTO_INCREMENT PRIMARY KEY,
+  FirstName varchar(50) NOT NULL,
+  LastName varchar(50) NOT NULL,
+  EMail varchar(50) NOT NULL,
+  Password varchar(60) NOT NULL,
+  RegistrationDate date NOT NULL,
+  UserLevel int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Data for table 'users'
+INSERT INTO users (FirstName, LastName, EMail, Password, RegistrationDate, UserLevel) VALUES
+('YourFirst', 'YourLast', 'you@you.com', 'Pa$$word1', '2021-01-31', 1),
+('Sybil', 'Ludington', 'SLudington@you.com', 'Pa$$word1', '1775-04-18', 2),
+('Rasmus', 'Lerdorf', 'RLerdorf@you.com', 'Pa$$word1', '1995-06-01', 1),
+('Percy', 'Julian', 'PJulian@you.com', 'Pa$$word1', '1973-07-01', 2),
+('Edith', 'Wilson', 'EWilson@you.com', 'Pa$$word1', '1919-10-01', 2);
+===========================================================================
+
+-- Table structure for table 'reviews'
+DROP TABLE IF EXISTS reviews;
+CREATE TABLE reviews (
+  ReviewId int(11) AUTO_INCREMENT PRIMARY KEY,
+  EMail varchar(20) NOT NULL,
+  Rating int(10), 
+  Review varchar(200) NOT NULL,
+  ReviewPostDate date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- Data for table 'reviews'
+INSERT INTO reviews (EMail, Rating, Review, ReviewPostDate) VALUES
+('', 'you@you.com', 5, 'I really enjoy playing this game', '');
+
+===========================================================================
+-- Table structure for table 'games'
+DROP TABLE IF EXISTS games;
+CREATE TABLE games (
+  GameNo int(11) AUTO_INCREMENT PRIMARY KEY,
+  GameName varchar(20) NOT NULL,
+  GameRating int(10) 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Data for table 'games'
+INSERT INTO games (GameName, GameRating) VALUES
+('Fortnite', 0),
+('Halo', 0),
+('Battle Royale', 0);
+-----------------------------------------------------
+-- Table structure for table 'fortnite'
+DROP TABLE IF EXISTS fortnite;
+CREATE TABLE fortnite (
+  RatingId int(11) AUTO_INCREMENT PRIMARY KEY,
+  EMail varchar(25) NOT NULL,
+  Rating int(11) NOT NULL,
+  Review varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Data for table 'fortnite'
+INSERT INTO fortnite (Rating, EMail, Review) VALUES
+('you@you.com', 5, 'This game has the best weapons'),
+('you@you.com', 5, 'This game takes a lot of skill to win');
+---------------------------------------------------
+-- Table structure for table 'halo'
+DROP TABLE IF EXISTS halo;
+CREATE TABLE halo (
+  RatingId int(11) AUTO_INCREMENT PRIMARY KEY,
+  EMail varchar(25) NOT NULL,
+  Rating int(11) NOT NULL,
+  Review varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Data for table 'halo'
+INSERT INTO halo (Rating, EMail, Review) VALUES
+('you@you.com', 5, 'This game has the best weapons'),
+('you@you.com', 5, 'This game takes a lot of skill to win');
+---------------------------------------------------
+-- Table structure for table 'battle_royale'
+DROP TABLE IF EXISTS battle_royale;
+CREATE TABLE battle_royale (
+  RatingId int(11) AUTO_INCREMENT PRIMARY KEY,
+  EMail varchar(25) NOT NULL,
+  Rating int(11) NOT NULL,
+  Review varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Data for table 'battle_royale'
+INSERT INTO battle_royale (Rating, EMail, Review) VALUES
+('you@you.com', 5, 'This game has the best weapons'),
+('you@you.com', 5, 'This game takes a lot of skill to win');
+
+-- Add user account: User ID: cis367gp2_user Password: cis367gp_pw
+DROP USER IF EXISTS cis367gp_user;
+CREATE USER cis367gp_user@'%' IDENTIFIED VIA mysql_native_password USING '*57E231DADC3692408A679455E2F1A399A69FD7BC';
+GRANT ALL PRIVILEGES ON cis367_wk3gp2.* TO cis367gp_user@'%' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
